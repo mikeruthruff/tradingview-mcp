@@ -287,7 +287,5 @@ export async function findElement({ query, strategy }) {
   return { success: true, query, strategy: strat, count: results?.length || 0, elements: results || [] };
 }
 
-export async function uiEvaluate({ expression }) {
-  const result = await evaluate(expression);
-  return { success: true, result };
-}
+// ui_evaluate REMOVED — arbitrary JS execution in TradingView context is too broad a surface.
+// All other tools construct their own JS from validated parameters.

@@ -2,7 +2,7 @@ import { register } from '../router.js';
 import * as core from '../../core/ui.js';
 
 register('ui', {
-  description: 'UI automation tools (click, keyboard, hover, scroll, find, eval, type, panel, fullscreen, mouse)',
+  description: 'UI automation tools (click, keyboard, hover, scroll, find, type, panel, fullscreen, mouse)',
   subcommands: new Map([
     ['click', {
       description: 'Click a UI element',
@@ -56,13 +56,6 @@ register('ui', {
       handler: (opts, positionals) => {
         if (!positionals[0]) throw new Error('Query required. Usage: tv ui find "Indicators"');
         return core.findElement({ query: positionals.join(' '), strategy: opts.strategy });
-      },
-    }],
-    ['eval', {
-      description: 'Execute JavaScript in TradingView page context',
-      handler: (opts, positionals) => {
-        if (!positionals[0]) throw new Error('Expression required. Usage: tv ui eval "1+1"');
-        return core.uiEvaluate({ expression: positionals.join(' ') });
       },
     }],
     ['type', {
