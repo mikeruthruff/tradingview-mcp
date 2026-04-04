@@ -24,7 +24,7 @@ register('values', {
 });
 
 register('data', {
-  description: 'Advanced data tools (lines, labels, tables, boxes, strategy, trades, equity, depth)',
+  description: 'Advanced data tools (lines, labels, tables, boxes, strategy, trades, equity)',
   subcommands: new Map([
     ['lines', {
       description: 'Get Pine Script line.new() price levels',
@@ -72,10 +72,6 @@ register('data', {
     ['equity', {
       description: 'Get strategy equity curve',
       handler: () => core.getEquity(),
-    }],
-    ['depth', {
-      description: 'Get order book / DOM data',
-      handler: () => core.getDepth(),
     }],
     ['indicator', {
       description: 'Get indicator info and inputs by entity ID',

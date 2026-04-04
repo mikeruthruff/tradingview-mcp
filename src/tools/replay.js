@@ -27,13 +27,6 @@ export function registerReplayTools(server) {
     catch (err) { return jsonResult({ success: false, error: err.message }, true); }
   });
 
-  server.tool('replay_trade', 'Execute a trade action in replay mode (buy, sell, or close position)', {
-    action: z.string().describe('Trade action: buy, sell, or close'),
-  }, async ({ action }) => {
-    try { return jsonResult(await core.trade({ action })); }
-    catch (err) { return jsonResult({ success: false, error: err.message }, true); }
-  });
-
   server.tool('replay_status', 'Get current replay mode status', {}, async () => {
     try { return jsonResult(await core.status()); }
     catch (err) { return jsonResult({ success: false, error: err.message }, true); }
